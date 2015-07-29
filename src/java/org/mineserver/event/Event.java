@@ -18,8 +18,6 @@ public abstract class Event {
         }
         return name;
     }
- 
-    public abstract HandlerList getHandlers();
 
     public final boolean isAsynchronous() {
         return async;

@@ -27,4 +27,8 @@ public interface Player{
 	
 	public void ban(String reason);
 	
+	public void sendMessage(String message); //Single message
+	
+	public void sendMessage(String[] message); multiple messages
+	
 }

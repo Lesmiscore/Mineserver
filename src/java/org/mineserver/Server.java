@@ -40,12 +40,38 @@ public class Server{
 	public void addPlayer(Player player){
         synchronized (players){
             players.add(player);
-            //getEventManager().getEventExecutor().execute(new PlayerJoinEvent(player));
+            this.getLogger().debug("Connected players " + players.size());
         }
     }
 	
+	 	public Player getPlayer(String name){
+        synchronized (players){
+            for(Player player : players){
+                if(player.getName().equals(name)){
+                    return player;
+                }
+            }
+        }
+        return null;
+    }
+
+	public void removePlayer(Player player){
+		players.remove(player);
+	}
+
+	public List<Player> getOnlinePlayers() {
+        return players;
+    }
+
+	public Logger getLogger(){
+		return logger;
+	}
+
 	public void stop(){
-		
+		for(Player p : getOnlinePlayers()) {
+			p.kick("Server closed.");
+		}
+		this.getLogger().server("Server was stopped");
 	}
 	
 }
