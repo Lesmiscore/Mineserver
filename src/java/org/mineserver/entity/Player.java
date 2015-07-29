@@ -29,6 +29,6 @@ public interface Player{
 	
 	public void sendMessage(String message); //Single message
 	
-	public void sendMessage(String[] message); multiple messages
+	public void sendMessage(String[] message); //multiple messages
 	
 }
