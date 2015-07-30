@@ -44,7 +44,7 @@ public class Server{
         }
     }
 	
-	 	public Player getPlayer(String name){
+    public Player getPlayer(String name){
         synchronized (players){
             for(Player player : players){
                 if(player.getName().equals(name)){
